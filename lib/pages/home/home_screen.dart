@@ -47,6 +47,22 @@ class _HomeScreensState extends State<HomeScreens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        elevation: 10.0,
+      	onPressed: () {
+      		// Navigator.of(context).push(CustomeRoute(SearchScreen()));
+          Histroy().push(
+            context: context,
+            path: '/search',
+          );
+      	},
+      	tooltip: 'search',
+      	child: Icon(
+      		Icons.search,
+      		color: Colors.white,
+      	),
+      ),
       appBar: AppBar(
         title: Text('倥侗无知'),
         backgroundColor: Colors.black,

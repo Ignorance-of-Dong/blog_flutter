@@ -17,7 +17,6 @@ class CounterNotifier with ChangeNotifier {
   getActiveList(context) async{
     var listm = await NetWorkList().apiActiveList(context: context);
     _activelist = listm['data']['data'];
-    print(_activelist);
     notifyListeners();
   }
   getActiveDetail(context, params) async{

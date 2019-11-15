@@ -36,6 +36,10 @@ dependencies:
 
   flutter_markdown: ^0.3.0
 
+  flutter_effects: 
+    git: https://github.com/HitenDev/flutter_effects.git
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

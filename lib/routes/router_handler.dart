@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../pages/detail/detail_screen.dart';
+import '../pages/sarch/search_screen.dart';
 // import '../pages/sarch/search_screen.dart';
 // import '../newPages/homepage/home_page_screen.dart';
 // import '../newPages/songListDetails/song_list_details.dart';
@@ -14,6 +15,13 @@ var detailHandler = new Handler(
     print(params);
     // Application.router.navigateTo(context, path)
     return new DetailScreen(id: params['id'][0].toString());
+  }
+);
+var searchHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    print(params);
+    // Application.router.navigateTo(context, path)
+    return new SearchScreen();
   }
 );
 

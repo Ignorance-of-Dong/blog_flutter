@@ -16,6 +16,7 @@ class Routes {
     /// 定义路由模块
     // router.define("/", handler: homeHandler);
     router.define('/detail', handler: detailHandler);
+    router.define('/search', handler: searchHandler);
     // router.define('/homepage', handler: homePageSreen);
     // router.define('/songlistdetails', handler: songlistdetailsScreen);
     // router.define('/musicpalyer', handler: musicpalyerScreen);

@@ -22,7 +22,10 @@ class MyAppState extends StatelessWidget {
       value: CounterNotifier(),
       child: MaterialApp(
         title: 'Fluter bottomnavagiter',
-        theme: ThemeData.light(),
+        theme: new ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.black,
+        ),
         home: AdvertisementScreen(),
       ),
     );
