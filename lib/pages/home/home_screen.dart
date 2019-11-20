@@ -3,6 +3,8 @@ import 'package:blog_flutter/widgets/Drawer/drawer_slider_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../model/model.dart';
+import 'dart:async';
+import 'package:jpush_flutter/jpush_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({
@@ -35,7 +37,17 @@ class HomeScreens extends StatefulWidget {
 
 class _HomeScreensState extends State<HomeScreens> {
   BuildContext context;
-
+  Timer countdownTimer;
+  final JPush _jPush = JPush();
+  Future<void> initPlatformState() async {
+    _jPush.setup(
+      appKey: "c2704897bea615d384035c30",
+      channel: "flutter_channel",
+      production: false,
+      debug: true,
+    );
+    if (!mounted) return;
+  }
   @override
   void initState() {
     this.context = widget.context;
@@ -43,6 +55,42 @@ class _HomeScreensState extends State<HomeScreens> {
       Provider.of<CounterNotifier>(context).getActiveList(context);
     });
     super.initState();
+    initPlatformState();
+    String n = new DateTime.now().toString().split(' ')[0];
+    Timer countdownTimer =  new Timer.periodic(new Duration(seconds: 1), (timer) {
+      String nowDate = new DateTime.now().toString().split('.')[0];
+      if (nowDate == (n + ' ' + '9:00:00')) {
+        timingpush('早上好，元气满满！！');
+      }
+      if (nowDate == (n + ' ' + '12:00:00')) {
+        timingpush('中午好，准备吃饭了！！');
+      }
+      if (nowDate == (n + ' ' + '18:00:00')) {
+        timingpush('晚上好，休息一下，褪去一天的风尘！！');
+      }
+    });
+    
+  }
+  @override
+  void dispose() {
+    countdownTimer?.cancel();
+    countdownTimer = null;
+    super.dispose();
+  }
+  void timingpush(context){
+    var fireDate = DateTime.fromMillisecondsSinceEpoch(DateTime.now().millisecondsSinceEpoch + 3000);
+    var localNotification = LocalNotification(
+      id: 000001,
+      title: 'Oil bottle',
+      buildId: 1,
+      content: context,
+      fireTime: fireDate,
+      extra: {"extra_key": "extra_value"});
+      _jPush.sendLocalNotification(localNotification).then((res) {
+        // setState(() {
+        //   _result = res;
+        // });
+      });
   }
   @override
   Widget build(BuildContext context) {
@@ -157,9 +205,14 @@ class _HomeScreensState extends State<HomeScreens> {
               // color: Colors.red,
               padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: Center(
-                child: Text(
+                child: InkResponse(
+                  child: Text(
                   '系统由👉Flutter提供！！！'
-                ),
+                  ),
+                  onTap: (){
+                    // timingpush();
+                  },
+                )
               ),
             ),
           ],

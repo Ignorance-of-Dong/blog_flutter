@@ -39,6 +39,9 @@ dependencies:
   flutter_effects: 
     git: https://github.com/HitenDev/flutter_effects.git
 
+  
+  jpush_flutter: 0.1.0
+
 
 dev_dependencies:
   flutter_test:
