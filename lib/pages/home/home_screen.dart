@@ -62,7 +62,7 @@ class _HomeScreensState extends State<HomeScreens> {
       // print(nowDate);
       // print((n + ' ' + '9:38:00'));
       if (nowDate == (n + ' ' + '09:40:00')) {
-        timingpush('早上好，元气满满！！');
+        timingpush('早上好，元气满满！！！');
       }
       if (nowDate == (n + ' ' + '12:00:00')) {
         timingpush('中午好，准备吃饭了！！');
