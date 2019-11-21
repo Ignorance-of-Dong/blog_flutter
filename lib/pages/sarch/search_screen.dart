@@ -45,6 +45,7 @@ class _SearchScreenState extends State<SearchScreen> {
           diffScaleNext++;
         });
     });
+    print(countdownTimer);
   }
   @override
   void initState() {

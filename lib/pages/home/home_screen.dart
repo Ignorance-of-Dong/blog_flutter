@@ -59,7 +59,9 @@ class _HomeScreensState extends State<HomeScreens> {
     String n = new DateTime.now().toString().split(' ')[0];
     Timer countdownTimer =  new Timer.periodic(new Duration(seconds: 1), (timer) {
       String nowDate = new DateTime.now().toString().split('.')[0];
-      if (nowDate == (n + ' ' + '9:00:00')) {
+      // print(nowDate);
+      // print((n + ' ' + '9:38:00'));
+      if (nowDate == (n + ' ' + '09:40:00')) {
         timingpush('早上好，元气满满！！');
       }
       if (nowDate == (n + ' ' + '12:00:00')) {
@@ -69,6 +71,7 @@ class _HomeScreensState extends State<HomeScreens> {
         timingpush('晚上好，休息一下，褪去一天的风尘！！');
       }
     });
+    print(countdownTimer);
     
   }
   @override

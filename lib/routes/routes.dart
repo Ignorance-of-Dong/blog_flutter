@@ -5,7 +5,7 @@ import './router_handler.dart';
 
 ///路由模块定义
 class Routes {
-  static void configureRoutes(Router router) {
+  static configureRoutes(Router router) {
     ///无法获取路由，路由错误，返回当前页
     router.notFoundHandler = new Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
