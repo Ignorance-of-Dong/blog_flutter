@@ -5,7 +5,7 @@ import 'dart:async';
 import '../../model/model.dart';
 // import 'package:flutter_effects/flutter_text_effect.dart';
 import '../../widgets/Diffscaletext/diff_scale_text.dart';
-
+import "package:flare_flutter/flare_actor.dart";
 const sentencess = [
   '所有漂亮的结果都是在行动中',
   '收获的你不需要很厉害才能开始',
@@ -95,6 +95,14 @@ class _SearchScreenState extends State<SearchScreen> {
                 
               },
             ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 500.0,
+            child:  FlareActor("animations/Christmas.flr",
+            alignment: Alignment.center,
+            fit: BoxFit.contain,
+            animation: "Christmas"),
           )
         ],
       )

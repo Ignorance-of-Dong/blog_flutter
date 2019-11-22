@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../model/model.dart';
 import 'dart:async';
 import 'package:jpush_flutter/jpush_flutter.dart';
+import "package:flare_flutter/flare_actor.dart";
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({
@@ -218,6 +219,50 @@ class _HomeScreensState extends State<HomeScreens> {
                 )
               ),
             ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 400.0,
+              // color: Colors.red,
+              child:  Stack(
+                children: <Widget>[
+                  FlareActor("animations/Christmas.flr",
+                  alignment: Alignment.center,
+                  fit: BoxFit.contain,
+                  animation: "Christmas"),
+                  Positioned(
+                    top: 20.0,
+                    left: 65.0,
+                    child: Text(
+                      'Several days were the Christmas day'
+                    ),
+                  ),
+                  Positioned(
+                    top: 40.0,
+                    // left: 60.0,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Center(
+                        child: Text(
+                          'Merry Christmas to you and your family.'
+                        ),
+                      ),
+                    )
+                  ),
+                  Positioned(
+                    bottom: 40.0,
+                    // left: 60.0,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width - 60.0,
+                      child: Center(
+                        child: Text(
+                          '祝你圣诞节快乐！！！'
+                        ),
+                      ),
+                    )
+                  ),
+                ],
+              )
+            )
           ],
         )
       ),
